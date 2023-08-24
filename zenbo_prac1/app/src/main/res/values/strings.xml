@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">zenbo_prac1</string>
+    <string name="title_activity_robot">RobotActivity</string>
+    <string name="robot_setExpression_candidate_select" />
+    <string name="robot_setExpression_api" />
+    <string name="robot_setExpression_less" />
+    <string name="robot_setExpression_full" />
+</resources>
