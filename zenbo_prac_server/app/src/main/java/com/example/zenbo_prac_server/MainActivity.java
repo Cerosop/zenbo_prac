@@ -27,6 +27,7 @@ import com.asus.robotframework.API.RobotCommand;
 import com.asus.robotframework.API.RobotCmdState;
 import com.asus.robotframework.API.RobotErrorCode;
 import com.asus.robotframework.API.RobotFace;
+import com.asus.robotframework.API.WheelLights;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -142,6 +143,28 @@ public class MainActivity extends RobotActivity {
                         else if(message.equals("proud")){
                             robotAPI.robot.setExpression(RobotFace.PROUD);
                         }
+                        else if (message.equals("red")) {
+                            robotAPI.wheelLights.setColor(WheelLights.Lights.SYNC_BOTH, 0xff, 0xFF0000);
+                        }
+                        else if (message.equals("blue")) {
+                            robotAPI.wheelLights.setColor(WheelLights.Lights.SYNC_BOTH, 0xff, 0xFFFF00);
+                        }
+                        else if (message.equals("yellow")) {
+                            robotAPI.wheelLights.setColor(WheelLights.Lights.SYNC_BOTH, 0xff, 0x0000FF);
+                        }
+                        else if (message.equals("green")) {
+                            robotAPI.wheelLights.setColor(WheelLights.Lights.SYNC_BOTH, 0xff, 0x008000);
+                        }
+                        else if (message.equals("orange")) {
+                            robotAPI.wheelLights.setColor(WheelLights.Lights.SYNC_BOTH, 0xff, 0xFFA500);
+                        }
+                        else if (message.equals("indigo")) {
+                            robotAPI.wheelLights.setColor(WheelLights.Lights.SYNC_BOTH, 0xff, 0x4B0082);
+                        }
+                        else if (message.equals("purple")) {
+                            robotAPI.wheelLights.setColor(WheelLights.Lights.SYNC_BOTH, 0xff, 0x800080);
+                        }
+
                     }
                     else{
                         clients.remove(client);
