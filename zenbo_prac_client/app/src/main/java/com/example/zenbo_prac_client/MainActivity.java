@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("test", "10");
+        Log.d("test", String.valueOf(server));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -90,19 +91,31 @@ public class MainActivity extends AppCompatActivity {
                             Log.d("test", ip);
 
                             server = new Socket(ip, Integer.parseInt(port));
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    chatroom_t.setText(chatroom_t.getText() + "\nsuccess");
+                                }
+                            });
 //                            server = new Socket("10.0.2.2", Integer.parseInt(port));
                             Log.d("test", "1");
                         } catch (IOException e) {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    chatroom_t.setText(chatroom_t.getText() + "\nfail " + e.toString());
+                                }
+                            });
                             Log.d("test", "111");
                             Log.d("test", e.toString());
                             throw new RuntimeException(e);
                         }
                     }
                 });
-//                if(server.isClosed()){
+                if(server != null && server.isClosed()){
                     Log.d("test", "reg");
                     thread.start();
-//                }
+                }
 
             }
         });
@@ -139,12 +152,18 @@ public class MainActivity extends AppCompatActivity {
                             bw.flush();
                             Log.d("connection", "sd");
                         } catch (Exception e) {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    chatroom_t.setText(chatroom_t.getText() + "\nfail " + e.toString());
+                                }
+                            });
                             Log.d("connection", e.toString());
                         }
                     }
                 });
 
-                if(server.isClosed()){
+                if(server == null && server.isClosed()){
                     chatroom_t.setText(chatroom_t.getText() + "\nServer closed. Please press leave button.");
                     message_t.setText("");
                 }
@@ -157,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
         btn_leave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!server.isClosed()){
+                if(server != null && !server.isClosed()){
                     Thread thread = new Thread(new Runnable() {
                         @Override
                         public void run() {
@@ -176,6 +195,12 @@ public class MainActivity extends AppCompatActivity {
                                 bw.newLine();
                                 bw.flush();
                                 server.close();
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        chatroom_t.setText(chatroom_t.getText() + "\nsuccess");
+                                    }
+                                });
                                 Log.d("connection", "ld");
                             }
                             catch (Exception ex){
