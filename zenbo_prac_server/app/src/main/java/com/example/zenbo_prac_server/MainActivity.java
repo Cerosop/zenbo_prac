@@ -171,6 +171,9 @@ public class MainActivity extends RobotActivity {
                             robotAPI.wheelLights.turnOff(WheelLights.Lights.SYNC_BOTH, 0xff);
                             robotAPI.wheelLights.setColor(WheelLights.Lights.SYNC_BOTH, 0xff, 0x800080);
                         }
+                        else if (message.equals("turnoff")) {
+                            robotAPI.wheelLights.turnOff(WheelLights.Lights.SYNC_BOTH, 0xff);
+                        }
                         else{
                             robotAPI.robot.speak("工三小");
                         }
