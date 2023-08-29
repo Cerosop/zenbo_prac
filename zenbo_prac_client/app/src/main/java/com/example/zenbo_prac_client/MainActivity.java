@@ -112,11 +112,14 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
-                if(server != null && server.isClosed()){
+                if(server == null || server.isClosed()){
                     Log.d("test", "reg");
+                    chatroom_t.setText(chatroom_t.getText() + "\nconnect");
                     thread.start();
                 }
-
+                else {
+                    chatroom_t.setText(chatroom_t.getText() + "\nno connect");
+                }
             }
         });
 

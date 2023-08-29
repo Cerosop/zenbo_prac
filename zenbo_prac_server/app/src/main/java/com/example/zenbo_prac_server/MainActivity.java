@@ -164,6 +164,9 @@ public class MainActivity extends RobotActivity {
                         else if (message.equals("purple")) {
                             robotAPI.wheelLights.setColor(WheelLights.Lights.SYNC_BOTH, 0xff, 0x800080);
                         }
+                        else{
+                            robotAPI.robot.speak("工三小");
+                        }
 
                     }
                     else{
