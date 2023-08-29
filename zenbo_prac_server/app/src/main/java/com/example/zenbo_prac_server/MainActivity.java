@@ -144,24 +144,31 @@ public class MainActivity extends RobotActivity {
                             robotAPI.robot.setExpression(RobotFace.PROUD);
                         }
                         else if (message.equals("red")) {
+                            robotAPI.wheelLights.turnOff(WheelLights.Lights.SYNC_BOTH, 0xff);
                             robotAPI.wheelLights.setColor(WheelLights.Lights.SYNC_BOTH, 0xff, 0xFF0000);
                         }
                         else if (message.equals("blue")) {
+                            robotAPI.wheelLights.turnOff(WheelLights.Lights.SYNC_BOTH, 0xff);
                             robotAPI.wheelLights.setColor(WheelLights.Lights.SYNC_BOTH, 0xff, 0xFFFF00);
                         }
                         else if (message.equals("yellow")) {
+                            robotAPI.wheelLights.turnOff(WheelLights.Lights.SYNC_BOTH, 0xff);
                             robotAPI.wheelLights.setColor(WheelLights.Lights.SYNC_BOTH, 0xff, 0x0000FF);
                         }
                         else if (message.equals("green")) {
+                            robotAPI.wheelLights.turnOff(WheelLights.Lights.SYNC_BOTH, 0xff);
                             robotAPI.wheelLights.setColor(WheelLights.Lights.SYNC_BOTH, 0xff, 0x008000);
                         }
                         else if (message.equals("orange")) {
+                            robotAPI.wheelLights.turnOff(WheelLights.Lights.SYNC_BOTH, 0xff);
                             robotAPI.wheelLights.setColor(WheelLights.Lights.SYNC_BOTH, 0xff, 0xFFA500);
                         }
                         else if (message.equals("indigo")) {
+                            robotAPI.wheelLights.turnOff(WheelLights.Lights.SYNC_BOTH, 0xff);
                             robotAPI.wheelLights.setColor(WheelLights.Lights.SYNC_BOTH, 0xff, 0x4B0082);
                         }
                         else if (message.equals("purple")) {
+                            robotAPI.wheelLights.turnOff(WheelLights.Lights.SYNC_BOTH, 0xff);
                             robotAPI.wheelLights.setColor(WheelLights.Lights.SYNC_BOTH, 0xff, 0x800080);
                         }
                         else{
